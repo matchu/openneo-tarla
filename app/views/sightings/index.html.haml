@@ -1,0 +1,22 @@
+%h1 Listing sightings
+
+%table
+  %thead
+    %tr
+      %th Url
+      %th Ip
+      %th Votes count
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for sighting in @sightings
+      %tr{ :class => cycle(:odd, :even) }
+        %td= sighting.url
+        %td= sighting.ip
+        %td= sighting.votes_count
+        %td= link_to 'Show', sighting
+        %td= link_to 'Edit', edit_sighting_path(sighting)
+        %td= link_to 'Destroy', sighting, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New sighting', new_sighting_path

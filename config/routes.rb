@@ -1,4 +1,6 @@
 Tarla::Application.routes.draw do |map|
+  resources :sightings
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
