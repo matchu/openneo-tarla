@@ -1,2 +1,17 @@
-= div_for sighting do
+%li{:id => "sighting-#{sighting.id}"}
   = link_to sighting.url, sighting.url
+  .score= sighting.score
+  %ul.votes
+    - sighting.votes.each do |vote|
+      - if vote.is_positive?
+        %li.positive +
+      - else
+        %li.negative -
+  - if current_user_has_voted_on?(sighting)
+    #thanks-for-your-vote Thanks for your vote!
+  - else
+    - fresh_votes_for_sighting(sighting).each do |type, message, vote|
+      = form_for vote, :html => {:class => "#{type}-vote"} do |f|
+        = f.hidden_field :sighting_id
+        = f.hidden_field :is_positive
+        = f.submit message

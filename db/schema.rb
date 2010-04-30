@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100430022010) do
+ActiveRecord::Schema.define(:version => 20100430201405) do
 
   create_table "sightings", :force => true do |t|
     t.string   "url"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(:version => 20100430022010) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer  "sighting_id", :null => false
-    t.string   "ip",          :null => false
-    t.boolean  "is_positive", :null => false
+    t.integer  "sighting_id",                   :null => false
+    t.string   "ip",                            :null => false
+    t.boolean  "is_positive", :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,7 +7,8 @@ gem 'rails', '3.0.0.beta2'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem 'haml'
+gem 'haml', '3.0.0.rc.3'
+gem 'compass', '0.10.0.rc4'
 
 gem 'capybara'
 gem 'database_cleaner'

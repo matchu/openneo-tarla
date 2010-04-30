@@ -1,5 +1,3 @@
-%h1 Listing sightings
-
-= render @sightings
-%br
-= link_to 'New sighting', new_sighting_path
+%ul#sightings
+  = render @sightings
+= link_to 'New sighting', new_sighting_path, :id => 'new-sighting'

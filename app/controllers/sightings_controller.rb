@@ -1,6 +1,6 @@
 class SightingsController < ApplicationController
   def index
-    @sightings = Sighting.all
+    @sightings = Sighting.includes(:votes).all
   end
 
   def new

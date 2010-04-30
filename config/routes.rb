@@ -1,5 +1,7 @@
 Tarla::Application.routes.draw do |map|
   resources :sightings, :only => [:index, :new, :create]
+  resources :votes, :only => [:create]
+  
   root :to => 'sightings#index'
 
   # The priority is based upon order of creation:

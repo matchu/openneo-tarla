@@ -22,6 +22,13 @@ class VoteTest < ActiveSupport::TestCase
     assert v.valid?, 'after'
   end
   
+  test "only sighting_id, is_positive accessible" do
+    v = Vote.new :sighting_id => 1337, :is_positive => false, :ip => '127.0.0.2'
+    assert_equal 1337, v.sighting_id, 'sighting id'
+    assert !v.is_positive?, 'is positive'
+    assert v.ip.nil?, 'ip'
+  end
+  
   test "one vote per sighting per ip" do
     sightings = Array.new(2) { Factory.build :sighting }
     ips = ['127.0.0.1', '127.0.0.2']
