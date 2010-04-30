@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100429232746) do
+ActiveRecord::Schema.define(:version => 20100430011231) do
 
   create_table "sightings", :force => true do |t|
     t.string   "url"
     t.string   "ip"
-    t.integer  "votes_count"
+    t.integer  "votes_count", :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

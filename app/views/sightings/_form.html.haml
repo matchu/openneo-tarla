@@ -1,18 +1,10 @@
-- form_for(@sighting) do |f|
+= form_for(@sighting) do |f|
   = f.error_messages
   
   .field
     = f.label :url
     %br
     = f.text_field :url
-  .field
-    = f.label :ip
-    %br
-    = f.text_field :ip
-  .field
-    = f.label :votes_count
-    %br
-    = f.text_field :votes_count
 
   .actions
     = f.submit
