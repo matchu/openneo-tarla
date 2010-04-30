@@ -1,6 +1,8 @@
 require 'uri'
 
 class Sighting < ActiveRecord::Base
+  has_many :votes
+  
   attr_accessible :url
   
   validates :url, :format => { :with => Regexp.new("^http://www.neopets.com/"), :message => 'needs to be from Neopets.com' }
