@@ -2,6 +2,7 @@ class SightingsController < ApplicationController
   def index
     @sightings = Sighting.includes(:votes).
       where('created_at >= ?', 15.minutes.ago).order('score DESC, created_at DESC').all
+    render :layout => false if request.xhr?
   end
 
   def new

@@ -125,6 +125,13 @@ h1
   +component
   :display none
 
+#request-notification-permission
+  +component
+  :display none
+  :width 50%
+  p
+    :width 100%
+
 #no-sightings.hidden
   :display none
 
@@ -140,6 +147,9 @@ h1
   :display none
   &.loading
     :background-image url(/images/loading.gif)
+
+.grant-notification-permission-button
+  +button(accept)
   
 footer
   :position absolute

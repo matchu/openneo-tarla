@@ -1,6 +1,13 @@
 %h2 Have you seen Tarla?
 = render :partial => 'form', :locals => {:sighting => Sighting.new}
 %h2 Recent sightings
+#request-notification-permission
+  %h3 Hey! We can send you notifications for these!
+  %p
+    Since your browser supports super-fancy desktop notifications, we can use
+    those to let you know when new Tarla sightings come in. It's really great!
+  
+  = link_to "Let's do it!", '#', :class => 'grant-notification-permission-button'
 %ul#sightings= render @sightings
 = no_sightings_message(@sightings) do
   :markdown
