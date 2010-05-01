@@ -3,7 +3,7 @@ class VotesController < ApplicationController
     vote = Vote.new params[:vote]
     vote.ip = request.remote_ip
     if vote.save
-      flash[:notice] = 'Vote saved'
+      flash[:notice] = 'Thank you for your vote!'
     else
       flash[:alert] = 'Error saving vote. Have you already voted on this?'
     end

@@ -9,7 +9,6 @@ Scenario: Vote up
   When I press "She's here" within "#sighting-1 form.positive-vote"
   Then I should be on the list of sightings
   And I should see "1" within "#sighting-1 .score"
-  And I should see "Thanks for your vote!" within "#sighting-1"
 
 Scenario: Vote down
   Given I have sightings at "http://www.neopets.com/water/"
@@ -17,4 +16,3 @@ Scenario: Vote down
   When I press "She's gone" within "#sighting-1 form.negative-vote"
   Then I should be on the list of sightings
   And I should see "-1" within "#sighting-1 .score"
-  And I should see "Thanks for your vote!" within "#sighting-1"

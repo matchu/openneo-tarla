@@ -311,29 +311,62 @@ caption {
   color: white;
 }
 
-/* line 22, ../../../app/stylesheets/screen.sass */
+/* line 31, ../../../app/stylesheets/screen.sass */
+.notice {
+  color: green;
+  font-weight: bold;
+}
+
+/* line 35, ../../../app/stylesheets/screen.sass */
 body {
   background: #c6a6cd url(/images/tarla_bg.png) no-repeat left top;
   min-height: 100%;
   min-width: 800px;
 }
 
-/* line 27, ../../../app/stylesheets/screen.sass */
+/* line 40, ../../../app/stylesheets/screen.sass */
+label, input, button {
+  cursor: pointer;
+}
+
+/* line 43, ../../../app/stylesheets/screen.sass */
 #container {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
   padding: 1em 1em 1em 300px;
+  position: relative;
 }
 
-/* line 31, ../../../app/stylesheets/screen.sass */
+/* line 48, ../../../app/stylesheets/screen.sass */
+header {
+  overflow: hidden;
+  display: inline-block;
+}
+/* line 8, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
+header {
+  display: block;
+}
+
+/* line 51, ../../../app/stylesheets/screen.sass */
+h1 {
+  float: left;
+}
+
+/* line 54, ../../../app/stylesheets/screen.sass */
+#controls {
+  float: left;
+  margin: 1em 0 0 2em;
+}
+
+/* line 58, ../../../app/stylesheets/screen.sass */
 #sightings {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 35, ../../../app/stylesheets/screen.sass */
+/* line 62, ../../../app/stylesheets/screen.sass */
 #sightings > li {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -345,7 +378,12 @@ body {
   padding: 10px 10px 10px 100px;
   position: relative;
 }
-/* line 45, ../../../app/stylesheets/screen.sass */
+/* line 72, ../../../app/stylesheets/screen.sass */
+#sightings > li .created_at {
+  font-size: 90%;
+  margin-left: 0.5em;
+}
+/* line 75, ../../../app/stylesheets/screen.sass */
 #sightings > li .score {
   color: white;
   font-size: 200%;
@@ -355,11 +393,11 @@ body {
   top: 30px;
   width: 80px;
 }
-/* line 54, ../../../app/stylesheets/screen.sass */
+/* line 84, ../../../app/stylesheets/screen.sass */
 #sightings > li a {
   font-size: 200%;
 }
-/* line 56, ../../../app/stylesheets/screen.sass */
+/* line 86, ../../../app/stylesheets/screen.sass */
 #sightings > li ul.votes {
   margin: 0;
   padding: 0;
@@ -392,13 +430,58 @@ body {
 #sightings > li ul.votes li:last-child, #sightings > li ul.votes li.last {
   padding-right: 0px;
 }
-/* line 59, ../../../app/stylesheets/screen.sass */
+/* line 89, ../../../app/stylesheets/screen.sass */
 #sightings > li ul.votes li {
   height: 8px;
   width: 8px;
 }
+/* line 92, ../../../app/stylesheets/screen.sass */
+#sightings > li form {
+  float: left;
+  margin-right: 0.5em;
+}
+/* line 95, ../../../app/stylesheets/screen.sass */
+#sightings > li form.positive-vote button {
+  background: #b595bc;
+  border: 1px solid #d7b7de;
+  background: #a484ab url('/images/icons/accept.png') no-repeat 4px center;
+  color: white;
+  padding: 4px 6px 4px 24px;
+  text-decoration: none;
+}
+/* line 26, ../../../app/stylesheets/screen.sass */
+#sightings > li form.positive-vote button:hover {
+  background-color: #93739a;
+}
+/* line 97, ../../../app/stylesheets/screen.sass */
+#sightings > li form.negative-vote button {
+  background: #b595bc;
+  border: 1px solid #d7b7de;
+  background: #a484ab url('/images/icons/delete.png') no-repeat 4px center;
+  color: white;
+  padding: 4px 6px 4px 24px;
+  text-decoration: none;
+}
+/* line 26, ../../../app/stylesheets/screen.sass */
+#sightings > li form.negative-vote button:hover {
+  background-color: #93739a;
+}
 
-/* line 63, ../../../app/stylesheets/screen.sass */
+/* line 100, ../../../app/stylesheets/screen.sass */
+#new-sighting {
+  background: #b595bc;
+  border: 1px solid #d7b7de;
+  background: #a484ab url('/images/icons/add.png') no-repeat 4px center;
+  color: white;
+  padding: 4px 6px 4px 24px;
+  text-decoration: none;
+}
+/* line 26, ../../../app/stylesheets/screen.sass */
+#new-sighting:hover {
+  background-color: #93739a;
+}
+
+/* line 103, ../../../app/stylesheets/screen.sass */
 *:focus {
   outline: 1px dotted #1c0023;
 }

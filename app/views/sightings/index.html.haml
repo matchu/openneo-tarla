@@ -1,3 +1,4 @@
 %ul#sightings
   = render @sightings
-= link_to 'New sighting', new_sighting_path, :id => 'new-sighting'
+- content_for :controls do
+  = link_to 'Add a Tarla sighting', new_sighting_path, :id => 'new-sighting'

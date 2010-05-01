@@ -11,7 +11,9 @@
   
   %body
     #container
-      %h1 Tarla's Tour Tracker
-      %p.notice= notice
-      %p.alert= alert
+      %header
+        %h1 Tarla's Tour Tracker
+        #controls= yield(:controls)
+      - [:notice, :alert].each do |type|
+        %p{:class => type}= send(type)
       = yield

@@ -12,7 +12,7 @@ class SightingsController < ApplicationController
     @sighting.ip = request.remote_ip
 
     if @sighting.save
-      redirect_to(sightings_path, :notice => 'Sighting was successfully created.')
+      redirect_to(sightings_path, :notice => 'Well spotted! Thanks for your help!')
     else
       render :action => "new"
     end
