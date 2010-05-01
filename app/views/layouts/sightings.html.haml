@@ -19,3 +19,18 @@
       - [:notice, :alert].each do |type|
         %p{:class => type}= send(type)
       = yield
+      %footer
+        :markdown
+          Brought to you by [OpenNeo][1]. We make open-source apps for fun.
+          
+          That means that you can [view the code for this project][2], and
+          feel free to contribute!
+          
+          Oh, and wardrobe freaks should check out [Dress to Impress][3]!
+          
+          Images &copy; 2000-2010 Neopets, Inc. All Rights Reserved.
+          Used With Permission
+          
+          [1]: http://www.openneo.net/
+          [2]: http://github.com/matchu/openneo-tarla
+          [3]: http://impress.openneo.net/

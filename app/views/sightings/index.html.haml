@@ -1,11 +1,6 @@
 - if @sightings.blank?
-  %p
-    %strong
-      Tarla hasn't been spotted recently, that elusive girl.
-      = link_to 'Have you seen her?', new_sighting_path
-  %p
-    Tarla sightings expire after 15 minutes. We haven't had any last more
-    than 10 minutes before, but better safe than sorry!
+  %h2 Tarla hasn't been spotted recently, that elusive girl. Have you seen her?
+  = render :partial => 'form', :locals => {:sighting => Sighting.new}
 - else
   %ul#sightings= render @sightings
 - content_for :controls do

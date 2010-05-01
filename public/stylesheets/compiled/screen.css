@@ -512,6 +512,18 @@ h1 {
 }
 
 /* line 118, ../../../app/stylesheets/screen.sass */
+footer {
+  position: absolute;
+  left: 10px;
+  top: 356px;
+  width: 260px;
+}
+/* line 123, ../../../app/stylesheets/screen.sass */
+footer a {
+  font-weight: bold;
+}
+
+/* line 126, ../../../app/stylesheets/screen.sass */
 *:focus {
   outline: 1px dotted #1c0023;
 }
