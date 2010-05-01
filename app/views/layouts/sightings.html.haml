@@ -12,9 +12,7 @@
   %body
     #container
       %header
-        %h1
-          = link_to "Tarla's Tour Tracker", sightings_path
-        #controls= yield(:controls)
+        %h1 Tarla's Tour Tracker
       %h2= yield(:title)
       - [:notice, :alert].each do |type|
         %p{:class => type}= send(type)

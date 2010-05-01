@@ -1,18 +1,18 @@
 = form_for sighting, :html => {:id => 'new-sighting'} do |f|
   = f.error_messages
   
-  = f.label :url, 'What is the URL of the page where you found Tarla?'
-  = f.text_field :url
+  = f.text_field :url, :placeholder => 'http://www.neopets.com/'
   
-  :markdown
-    Before you submit, make sure you know:
-    
-      * Tarla sightings only last for about ten minutes or fewer. **If this
-        finding is from an hour ago, please don't submit it!** Thanks!
-      * We depend on the community for helping us keep this site accurate, and
-        the community has its less honest folk. Other users will be keeping track
-        of whether or not your submission is accurate, and **we will ban users
-        found to abuse the Tour Tracker.** Thanks in advance for keeping this an
-        excellent resource!
+  #before-you-submit
+    :markdown
+      Before you submit, make sure you know:
+      
+        * Tarla sightings only last for about ten minutes or fewer. **If this
+          finding is from an hour ago, please don't submit it!** Thanks!
+        * We depend on the community for helping us keep this site accurate, and
+          the community has its less honest folk. Other users will be keeping track
+          of whether or not your submission is accurate, and **we will ban users
+          found to abuse the Tour Tracker.** Thanks in advance for keeping this an
+          excellent resource!
 
   %button{:class => 'new-sighting-button'} Submit sighting
