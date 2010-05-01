@@ -1,6 +1,7 @@
 class SightingsController < ApplicationController
   def index
-    @sightings = Sighting.includes(:votes).all
+    @sightings = Sighting.includes(:votes).
+      where('created_at >= ?', 15.minutes.ago).order('created_at DESC').all
   end
 
   def new
