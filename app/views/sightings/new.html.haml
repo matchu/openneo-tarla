@@ -1,3 +1,6 @@
 - title 'Add a Tarla sighting'
 
 = render :partial => 'form', :locals => {:sighting => @sighting}
+
+- content_for :controls do
+  = link_to 'Back to sightings', sightings_path, :class => 'sightings-list-button'

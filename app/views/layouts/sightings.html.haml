@@ -13,9 +13,12 @@
     #container
       %header
         %h1 Tarla's Tour Tracker
-      %h2= yield(:title)
+        #controls= yield(:controls)
+      - unless yield(:title).blank?
+        %h2= yield(:title)
       - [:notice, :alert].each do |type|
-        %p{:class => type}= send(type)
+        - unless send(type).blank?
+          %p{:class => type}= send(type)
       = yield
       %footer
         :markdown
