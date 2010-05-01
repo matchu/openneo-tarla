@@ -1,3 +1,10 @@
+function preventDefault(fn) {
+  return function (e) {
+    e.preventDefault();
+    fn();
+  }
+}
+
 /*
  *   Basic layout hooks
  */
@@ -20,20 +27,17 @@ $('#new-sighting').submit(function () {
  *   AJAX reload sightings
  */
 
-function reloadSightings(callback) {
+var reload_button = $('a.reload-sightings-button').show().
+  click(preventDefault(reloadSightings));
+
+function reloadSightings() {
+  reload_button.addClass('loading');
   $.get('/sightings', function (html) {
+    reload_button.removeClass('loading');
     var sightings = $(html).find('#sightings');
     $('#no-sightings').toggleClass('hidden', sightings.find('li').length > 0);
     $('#sightings').html(sightings.html());
-    if(callback !== undefined) callback();
   });
 }
 
-$('a.reload-sightings-button').show().click(function (e) {
-  var el = $(this);
-  e.preventDefault();
-  el.addClass('loading');
-  reloadSightings(function () {
-    el.removeClass('loading');
-  });
-});
+setInterval(reloadSightings, 30000);
