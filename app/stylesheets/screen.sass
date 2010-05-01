@@ -32,9 +32,11 @@ $loud_color = #fff
   :color green
   :font-weight bold
 
+html, body
+  :height 100%
+
 body
   :background $background_color url(/images/tarla_bg.png) no-repeat left top
-  :min-height 100%
   :min-width 800px
 
 label, input, button
@@ -86,7 +88,7 @@ h1
     ul.votes
       +horizontal-list
       :margin-bottom 1em
-      li
+      li img
         :height 8px
         :width 8px
     form

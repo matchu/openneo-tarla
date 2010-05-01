@@ -318,18 +318,22 @@ caption {
 }
 
 /* line 35, ../../../app/stylesheets/screen.sass */
+html, body {
+  height: 100%;
+}
+
+/* line 38, ../../../app/stylesheets/screen.sass */
 body {
   background: #c6a6cd url(/images/tarla_bg.png) no-repeat left top;
-  min-height: 100%;
   min-width: 800px;
 }
 
-/* line 40, ../../../app/stylesheets/screen.sass */
+/* line 42, ../../../app/stylesheets/screen.sass */
 label, input, button {
   cursor: pointer;
 }
 
-/* line 43, ../../../app/stylesheets/screen.sass */
+/* line 45, ../../../app/stylesheets/screen.sass */
 #container {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -339,7 +343,7 @@ label, input, button {
   position: relative;
 }
 
-/* line 48, ../../../app/stylesheets/screen.sass */
+/* line 50, ../../../app/stylesheets/screen.sass */
 header {
   overflow: hidden;
   display: inline-block;
@@ -349,24 +353,24 @@ header {
   display: block;
 }
 
-/* line 51, ../../../app/stylesheets/screen.sass */
+/* line 53, ../../../app/stylesheets/screen.sass */
 h1 {
   float: left;
 }
 
-/* line 54, ../../../app/stylesheets/screen.sass */
+/* line 56, ../../../app/stylesheets/screen.sass */
 #controls {
   float: left;
   margin: 1em 0 0 2em;
 }
 
-/* line 58, ../../../app/stylesheets/screen.sass */
+/* line 60, ../../../app/stylesheets/screen.sass */
 #sightings {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 62, ../../../app/stylesheets/screen.sass */
+/* line 64, ../../../app/stylesheets/screen.sass */
 #sightings > li {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -378,12 +382,12 @@ h1 {
   padding: 10px 10px 10px 100px;
   position: relative;
 }
-/* line 72, ../../../app/stylesheets/screen.sass */
+/* line 74, ../../../app/stylesheets/screen.sass */
 #sightings > li .created_at {
   font-size: 90%;
   margin-left: 0.5em;
 }
-/* line 75, ../../../app/stylesheets/screen.sass */
+/* line 77, ../../../app/stylesheets/screen.sass */
 #sightings > li .score {
   color: white;
   font-size: 200%;
@@ -393,11 +397,11 @@ h1 {
   top: 30px;
   width: 80px;
 }
-/* line 84, ../../../app/stylesheets/screen.sass */
+/* line 86, ../../../app/stylesheets/screen.sass */
 #sightings > li a {
   font-size: 200%;
 }
-/* line 86, ../../../app/stylesheets/screen.sass */
+/* line 88, ../../../app/stylesheets/screen.sass */
 #sightings > li ul.votes {
   margin: 0;
   padding: 0;
@@ -430,17 +434,17 @@ h1 {
 #sightings > li ul.votes li:last-child, #sightings > li ul.votes li.last {
   padding-right: 0px;
 }
-/* line 89, ../../../app/stylesheets/screen.sass */
-#sightings > li ul.votes li {
+/* line 91, ../../../app/stylesheets/screen.sass */
+#sightings > li ul.votes li img {
   height: 8px;
   width: 8px;
 }
-/* line 92, ../../../app/stylesheets/screen.sass */
+/* line 94, ../../../app/stylesheets/screen.sass */
 #sightings > li form {
   float: left;
   margin-right: 0.5em;
 }
-/* line 95, ../../../app/stylesheets/screen.sass */
+/* line 97, ../../../app/stylesheets/screen.sass */
 #sightings > li form.positive-vote button {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -453,7 +457,7 @@ h1 {
 #sightings > li form.positive-vote button:hover {
   background-color: #93739a;
 }
-/* line 97, ../../../app/stylesheets/screen.sass */
+/* line 99, ../../../app/stylesheets/screen.sass */
 #sightings > li form.negative-vote button {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -467,23 +471,23 @@ h1 {
   background-color: #93739a;
 }
 
-/* line 101, ../../../app/stylesheets/screen.sass */
+/* line 103, ../../../app/stylesheets/screen.sass */
 #new-sighting label, #new-sighting input, #new-sighting button {
   display: block;
   margin-bottom: 1em;
 }
-/* line 104, ../../../app/stylesheets/screen.sass */
+/* line 106, ../../../app/stylesheets/screen.sass */
 #new-sighting label {
   font-size: 150%;
   font-weight: bold;
 }
-/* line 108, ../../../app/stylesheets/screen.sass */
+/* line 110, ../../../app/stylesheets/screen.sass */
 #new-sighting input {
   font-size: 200%;
   width: 80%;
 }
 
-/* line 112, ../../../app/stylesheets/screen.sass */
+/* line 114, ../../../app/stylesheets/screen.sass */
 .new-sighting-button {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -497,7 +501,7 @@ h1 {
   background-color: #93739a;
 }
 
-/* line 115, ../../../app/stylesheets/screen.sass */
+/* line 117, ../../../app/stylesheets/screen.sass */
 .sightings-list-button {
   background: #b595bc;
   border: 1px solid #d7b7de;
@@ -511,19 +515,19 @@ h1 {
   background-color: #93739a;
 }
 
-/* line 118, ../../../app/stylesheets/screen.sass */
+/* line 120, ../../../app/stylesheets/screen.sass */
 footer {
   position: absolute;
   left: 10px;
   top: 356px;
   width: 260px;
 }
-/* line 123, ../../../app/stylesheets/screen.sass */
+/* line 125, ../../../app/stylesheets/screen.sass */
 footer a {
   font-weight: bold;
 }
 
-/* line 126, ../../../app/stylesheets/screen.sass */
+/* line 128, ../../../app/stylesheets/screen.sass */
 *:focus {
   outline: 1px dotted #1c0023;
 }
