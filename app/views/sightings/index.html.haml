@@ -1,5 +1,16 @@
 %h2 Have you seen Tarla?
 = render :partial => 'form', :locals => {:sighting => Sighting.new}
+%h2 Recent sightings
 %ul#sightings= render @sightings
+= no_sightings_message(@sightings) do
+  :markdown
+    **We haven't seen Tarla lately... she's a sly one!** Tarla usually only
+    stays in one spot for ten minutes maximum, so Tour Tracker sightings expire
+    after 15 minutes, just to be safe.
+    
+    **If you see Tarla during your journeys, let us know, and quick!** Type in
+    the URL where you found her above. Your peers will keep track of how long
+    Tarla is there, or if she was even there in the first place, so please
+    don't take advantage of the Tour Tracker! Thanks in advance!
 
 - include_javascript_in_layout :jquery, 'jquery/placeholder', 'sightings/index'
