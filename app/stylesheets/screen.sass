@@ -134,6 +134,13 @@ h1
 .sightings-list-button
   +button(arrow_left)
   
+.reload-sightings-button
+  +button(arrow_refresh)
+  // only show button if javascript enabled
+  :display none
+  &.loading
+    :background-image url(/images/loading.gif)
+  
 footer
   :position absolute
   :left 10px

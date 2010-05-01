@@ -14,3 +14,5 @@
     don't take advantage of the Tour Tracker! Thanks in advance!
 
 - include_javascript_in_layout :jquery, 'jquery/placeholder', 'sightings/index'
+- content_for :controls do
+  = link_to 'Reload', '#', :class => 'reload-sightings-button'
