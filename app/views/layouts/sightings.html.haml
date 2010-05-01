@@ -12,12 +12,13 @@
   %body
     #container
       %header
-        %h1
-          = link_to "Tarla's Tour Tracker", sightings_path
+        %h1 Tarla's Tour Tracker
         #controls= yield(:controls)
-      %h2= yield(:title)
+      - unless yield(:title).blank?
+        %h2= yield(:title)
       - [:notice, :alert].each do |type|
-        %p{:class => type}= send(type)
+        - unless send(type).blank?
+          %p{:class => type}= send(type)
       = yield
       %footer
         :markdown

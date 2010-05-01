@@ -16,4 +16,4 @@
       = form_for vote, :html => {:class => "#{type}-vote"} do |f|
         = f.hidden_field :sighting_id
         = f.hidden_field :is_positive
-        %button{:type => 'submit'}= message
+        = f.submit message

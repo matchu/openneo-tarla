@@ -15,6 +15,8 @@ $loud_color = #fff
 =component
   :background ($background_color - #111)
   :border 1px solid ($background_color + #111)
+  :margin-bottom 1em
+  :padding 1em
 
 =button($icon)
   +component
@@ -67,7 +69,6 @@ h1
       :image url(http://images.neopets.com/site_events/2010/tarla/pushdown/prize_puzzle.png)
       :repeat no-repeat
       :position 10px 10px
-    :margin .5em 0
     :min-height 80px
     :padding 10px 10px 10px 100px
     :position relative
@@ -94,13 +95,14 @@ h1
     form
       :float left
       :margin-right .5em
-    form.positive-vote button
+    form.positive-vote input
       +button(accept)
-    form.negative-vote button
+    form.negative-vote input
       +button(delete)
 
 #new-sighting
-  label, input, button
+  +clearfix
+  label, input[type=text]
     :display block
     :margin-bottom 1em
   label
@@ -108,8 +110,14 @@ h1
       :size 150%
       :weight bold
   input
-    :font-size 200%
-    :width 80%
+    :float left
+    &[type=text]
+      :font-size 200%
+      :width 80%
+    &[type=submit]
+      :margin
+        :left 1em
+        :top .5em
 
 .new-sighting-button
   +button(add)
@@ -123,6 +131,12 @@ footer
   :top 10px + 346px
   :width 260px
   a
+    :font-weight bold
+
+.errorExplanation
+  +component
+  :width 50%
+  p
     :font-weight bold
 
 *:focus

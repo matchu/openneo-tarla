@@ -1,9 +1,11 @@
 = form_for sighting, :html => {:id => 'new-sighting'} do |f|
   = f.error_messages
   
-  = f.label :url, 'What is the URL of the page where you found Tarla?'
-  = f.text_field :url
+  = f.text_field :url, :placeholder => 'http://www.neopets.com/'
   
+  = f.submit 'Submit sighting', :class => 'new-sighting-button'
+  
+#before-you-submit
   :markdown
     Before you submit, make sure you know:
     
@@ -14,5 +16,3 @@
         of whether or not your submission is accurate, and **we will ban users
         found to abuse the Tour Tracker.** Thanks in advance for keeping this an
         excellent resource!
-
-  %button{:class => 'new-sighting-button'} Submit sighting
