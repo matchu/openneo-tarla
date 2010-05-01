@@ -1,7 +1,3 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 13, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/general/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -72,7 +68,7 @@ a img {
 body {
   line-height: 1.5;
   font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
-  color: #eeeeee;
+  color: #4f2f56;
   font-size: 75%;
 }
 
@@ -159,11 +155,11 @@ p img.right {
 /* line 100, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 a {
   text-decoration: underline;
-  color: #000099;
+  color: #1c0023;
 }
 /* line 18, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:visited {
-  color: #000066;
+  color: #4f3356;
 }
 /* line 21, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:focus {
@@ -171,7 +167,7 @@ a:focus {
 }
 /* line 24, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:hover {
-  color: black;
+  color: #3e2245;
 }
 /* line 27, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:active {
@@ -312,17 +308,97 @@ caption {
 
 /* line 161, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 .loud {
-  color: #111111;
+  color: white;
 }
 
-/* line 16, ../../../app/stylesheets/screen.sass */
+/* line 22, ../../../app/stylesheets/screen.sass */
 body {
-  background: #c6a6cd url(/images/tarla_bg.png) no-repeat top left;
+  background: #c6a6cd url(/images/tarla_bg.png) no-repeat left top;
   min-height: 100%;
-  padding-left: 300px;
+  min-width: 800px;
 }
 
-/* line 21, ../../../app/stylesheets/screen.sass */
+/* line 27, ../../../app/stylesheets/screen.sass */
+#container {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em 1em 1em 300px;
+}
+
+/* line 31, ../../../app/stylesheets/screen.sass */
+#sightings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 35, ../../../app/stylesheets/screen.sass */
+#sightings > li {
+  background: #b595bc;
+  border: 1px solid #d7b7de;
+  background-image: url(http://images.neopets.com/site_events/2010/tarla/pushdown/prize_puzzle.png);
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+  margin: 0.5em 0;
+  min-height: 80px;
+  padding: 10px 10px 10px 100px;
+  position: relative;
+}
+/* line 45, ../../../app/stylesheets/screen.sass */
+#sightings > li .score {
+  color: white;
+  font-size: 200%;
+  left: 10px;
+  position: absolute;
+  text-align: center;
+  top: 30px;
+  width: 80px;
+}
+/* line 54, ../../../app/stylesheets/screen.sass */
+#sightings > li a {
+  font-size: 200%;
+}
+/* line 56, ../../../app/stylesheets/screen.sass */
+#sightings > li ul.votes {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+/* line 8, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
+#sightings > li ul.votes {
+  display: block;
+}
+/* line 50, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#sightings > li ul.votes li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 41, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#sightings > li ul.votes li:first-child, #sightings > li ul.votes li.first {
+  padding-left: 0px;
+}
+/* line 43, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#sightings > li ul.votes li:last-child, #sightings > li ul.votes li.last {
+  padding-right: 0px;
+}
+/* line 59, ../../../app/stylesheets/screen.sass */
+#sightings > li ul.votes li {
+  height: 8px;
+  width: 8px;
+}
+
+/* line 63, ../../../app/stylesheets/screen.sass */
 *:focus {
-  outline: #cccccc dotted medium;
+  outline: 1px dotted #1c0023;
 }

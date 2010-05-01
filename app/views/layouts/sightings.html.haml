@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title== Tarla Tracker - OpenNeo
+    %title== Tarla's Tour Tracker - OpenNeo
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if IE]
@@ -10,7 +10,8 @@
     = csrf_meta_tag
   
   %body
-    %h1 Tarla Tracker
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    #container
+      %h1 Tarla's Tour Tracker
+      %p.notice= notice
+      %p.alert= alert
+      = yield

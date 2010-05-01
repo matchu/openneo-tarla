@@ -1,24 +1,64 @@
-/*
-  Welcome to Compass.
-  In this file you should write your main styles. (or centralize your imports)
-  Import this file using the following HTML or equivalent:
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+@import compass/reset
+@import blueprint/colors
+@import blueprint/typography
+@import compass/css3/box-sizing
+@import compass/utilities
 
-@import compass/reset.sass
-@import blueprint/colors.sass
-@import blueprint/typography.sass
-
-$font_color = #eee
+$background_color = #c6a6cd
+$font_color = $background_color - #777
 $header_color = #fff
+$link_color = $background_color - #aaa
+$link_hover_color = $link_color + #222
+$link_visited_color = $link_color + #333
+
+$loud_color = #fff
+
+=component
+  :background ($background_color - #111)
+  :border 1px solid ($background_color + #111)
 
 +blueprint-typography
 
 body
-  :background #c6a6cd url(/images/tarla_bg.png) no-repeat top left
+  :background $background_color url(/images/tarla_bg.png) no-repeat left top
   :min-height 100%
-  :padding-left 300px
+  :min-width 800px
+
+#container
+  +box-sizing(border-box)
+  :padding 1em 1em 1em 300px
+
+#sightings
+  :list-style none
+  :margin 0
+  :padding 0
+  > li
+    +component
+    :background
+      :image url(http://images.neopets.com/site_events/2010/tarla/pushdown/prize_puzzle.png)
+      :repeat no-repeat
+      :position 10px 10px
+    :margin .5em 0
+    :min-height 80px
+    :padding 10px 10px 10px 100px
+    :position relative
+    .score
+      +loud
+      :font
+        :size 200%
+      :left 10px
+      :position absolute
+      :text-align center
+      :top 30px
+      :width 80px
+    a
+      :font-size 200%
+    ul.votes
+      +horizontal-list
+      :margin-bottom 1em
+      li
+        :height 8px
+        :width 8px
 
 *:focus
-  outline: #ccc dotted medium
-
-
+  outline: 1px dotted ($link_color)

@@ -3,10 +3,13 @@
   .score= sighting.score
   %ul.votes
     - sighting.votes.each do |vote|
-      - if vote.is_positive?
-        %li.positive +
-      - else
-        %li.negative -
+      %li
+        - if vote.is_positive?
+          = image_tag 'vote_positive.png', :alt => '+',
+            :title => "Sighting confirmed #{time_ago_in_words vote.created_at} ago"
+        - else
+          = image_tag 'vote_negative.png', :alt => '-',
+            :title => "Sighting denied #{time_ago_in_words vote.created_at} ago"
   - if current_user_has_voted_on?(sighting)
     #thanks-for-your-vote Thanks for your vote!
   - else
