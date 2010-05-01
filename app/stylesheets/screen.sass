@@ -119,6 +119,10 @@ h1
         :left 1em
         :top .5em
 
+#before-you-submit
+  +component
+  :display none
+
 .new-sighting-button
   +button(add)
 
@@ -138,6 +142,9 @@ footer
   :width 50%
   p
     :font-weight bold
+
+input.placeholder
+  :color #ccc
 
 *:focus
   outline: 1px dotted ($link_color)

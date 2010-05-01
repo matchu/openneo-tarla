@@ -1,3 +1,5 @@
 %h2 Have you seen Tarla?
 = render :partial => 'form', :locals => {:sighting => Sighting.new}
 %ul#sightings= render @sightings
+
+- include_javascript_in_layout :jquery, 'jquery/placeholder', 'sightings/index'
