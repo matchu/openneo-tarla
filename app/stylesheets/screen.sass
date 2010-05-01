@@ -6,7 +6,7 @@
 
 $background_color = #c6a6cd
 $font_color = $background_color - #777
-$header_color = #fff
+$header_color = $font_color - #111
 $link_color = $background_color - #aaa
 $link_hover_color = $link_color + #222
 $link_visited_color = $link_color + #333
@@ -20,7 +20,7 @@ $loud_color = #fff
   +component
   $icon_path = "/images/icons/" + $icon + ".png"
   :background ($background_color - #222) url($icon_path) no-repeat 4px center
-  :color $loud_color
+  :color $loud_color !important
   :padding 4px 6px 4px 24px
   :text-decoration none
   &:hover
@@ -98,7 +98,22 @@ h1
       +button(delete)
 
 #new-sighting
+  label, input, button
+    :display block
+    :margin-bottom 1em
+  label
+    :font
+      :size 150%
+      :weight bold
+  input
+    :font-size 200%
+    :width 80%
+
+.new-sighting-button
   +button(add)
+
+.sightings-list-button
+  +button(arrow_left)
 
 *:focus
   outline: 1px dotted ($link_color)

@@ -1,4 +1,3 @@
-%ul#sightings
 - if @sightings.blank?
   %p
     %strong
@@ -8,6 +7,6 @@
     Tarla sightings expire after 15 minutes. We haven't had any last more
     than 10 minutes before, but better safe than sorry!
 - else
-  = render @sightings
+  %ul#sightings= render @sightings
 - content_for :controls do
-  = link_to 'Add a Tarla sighting', new_sighting_path, :id => 'new-sighting'
+  = link_to 'Add a Tarla sighting', new_sighting_path, :class => 'new-sighting-button'

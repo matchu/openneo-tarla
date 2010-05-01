@@ -75,7 +75,7 @@ body {
 /* line 58, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h1 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 3em;
   line-height: 1;
   margin-bottom: 0.5em;
@@ -88,7 +88,7 @@ h1 img {
 /* line 65, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h2 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 2em;
   margin-bottom: 0.75em;
 }
@@ -96,7 +96,7 @@ h2 {
 /* line 69, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h3 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 1.5em;
   line-height: 1;
   margin-bottom: 1em;
@@ -105,7 +105,7 @@ h3 {
 /* line 74, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h4 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 1.2em;
   line-height: 1.25;
   margin-bottom: 1.25em;
@@ -114,7 +114,7 @@ h4 {
 /* line 79, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h5 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 1.5em;
@@ -123,7 +123,7 @@ h5 {
 /* line 84, ../../../../../.bundle/ruby/1.8/gems/compass-0.10.0.rc4/frameworks/_blueprint_deprecated_imports/stylesheets/blueprint/_typography.sass */
 h6 {
   font-weight: normal;
-  color: white;
+  color: #3e1e45;
   font-size: 1em;
   font-weight: bold;
 }
@@ -445,7 +445,7 @@ h1 {
   background: #b595bc;
   border: 1px solid #d7b7de;
   background: #a484ab url('/images/icons/accept.png') no-repeat 4px center;
-  color: white;
+  color: white !important;
   padding: 4px 6px 4px 24px;
   text-decoration: none;
 }
@@ -458,7 +458,7 @@ h1 {
   background: #b595bc;
   border: 1px solid #d7b7de;
   background: #a484ab url('/images/icons/delete.png') no-repeat 4px center;
-  color: white;
+  color: white !important;
   padding: 4px 6px 4px 24px;
   text-decoration: none;
 }
@@ -467,21 +467,51 @@ h1 {
   background-color: #93739a;
 }
 
-/* line 100, ../../../app/stylesheets/screen.sass */
-#new-sighting {
+/* line 101, ../../../app/stylesheets/screen.sass */
+#new-sighting label, #new-sighting input, #new-sighting button {
+  display: block;
+  margin-bottom: 1em;
+}
+/* line 104, ../../../app/stylesheets/screen.sass */
+#new-sighting label {
+  font-size: 150%;
+  font-weight: bold;
+}
+/* line 108, ../../../app/stylesheets/screen.sass */
+#new-sighting input {
+  font-size: 200%;
+  width: 80%;
+}
+
+/* line 112, ../../../app/stylesheets/screen.sass */
+.new-sighting-button {
   background: #b595bc;
   border: 1px solid #d7b7de;
   background: #a484ab url('/images/icons/add.png') no-repeat 4px center;
-  color: white;
+  color: white !important;
   padding: 4px 6px 4px 24px;
   text-decoration: none;
 }
 /* line 26, ../../../app/stylesheets/screen.sass */
-#new-sighting:hover {
+.new-sighting-button:hover {
   background-color: #93739a;
 }
 
-/* line 103, ../../../app/stylesheets/screen.sass */
+/* line 115, ../../../app/stylesheets/screen.sass */
+.sightings-list-button {
+  background: #b595bc;
+  border: 1px solid #d7b7de;
+  background: #a484ab url('/images/icons/arrow_left.png') no-repeat 4px center;
+  color: white !important;
+  padding: 4px 6px 4px 24px;
+  text-decoration: none;
+}
+/* line 26, ../../../app/stylesheets/screen.sass */
+.sightings-list-button:hover {
+  background-color: #93739a;
+}
+
+/* line 118, ../../../app/stylesheets/screen.sass */
 *:focus {
   outline: 1px dotted #1c0023;
 }

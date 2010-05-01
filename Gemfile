@@ -15,3 +15,5 @@ gem 'database_cleaner'
 gem 'cucumber-rails'
 
 gem "factory_girl", :git => "git://github.com/thoughtbot/factory_girl.git", :branch => "rails3"
+
+gem 'rdiscount'
