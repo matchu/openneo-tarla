@@ -37,7 +37,7 @@ function reloadSightings() {
   $.get('/sightings', function (html) {
     reload_button.removeClass('loading');
     var sightings_list = $('<div/>', {html: html}).find('#sightings'),
-      sightings = sightings_list.find('li');
+      sightings = sightings_list.children('li');
     sightings.each(function () {
       var li = $(this);
       console.log(li);
