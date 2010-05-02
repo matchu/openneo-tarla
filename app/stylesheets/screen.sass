@@ -144,12 +144,14 @@ h1
 .reload-sightings-button
   +button(arrow_refresh)
   // only show button if javascript enabled
-  :display none
   &.loading
     :background-image url(/images/loading.gif)
 
 .grant-notification-permission-button
   +button(accept)
+
+.hidden-js-control
+  :display none
   
 footer
   :position absolute

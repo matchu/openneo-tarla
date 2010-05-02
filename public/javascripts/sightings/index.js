@@ -9,6 +9,8 @@ function preventDefault(fn) {
  *   Basic layout hooks
  */
 
+$('.hidden-js-control').removeClass('hidden-js-control');
+
 $('#new-sighting input[type=text]').placeholder().focus(function () {
   $('#before-you-submit').slideDown('fast');
 }).blur(function () {
@@ -27,7 +29,7 @@ $('#new-sighting').submit(function () {
  *   AJAX reload sightings
  */
 
-var reload_button = $('a.reload-sightings-button').show().
+var reload_button = $('a.reload-sightings-button').
   click(preventDefault(reloadSightings));
 
 function reloadSightings() {
@@ -38,6 +40,7 @@ function reloadSightings() {
       sightings = sightings_list.find('li');
     sightings.each(function () {
       var li = $(this);
+      console.log(li);
       if(!document.getElementById(li.attr('id'))) {
         notifier.notify(li.find('a').text());
       }
@@ -99,6 +102,7 @@ if(wn) {
       wn.requestPermission(function () {
         if(wn.checkPermission() == 0) {
           permission_el.hide('fast');
+          notifier = new notifiers.webkit();
         }
       });
     });
