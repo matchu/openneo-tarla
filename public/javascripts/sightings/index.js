@@ -56,14 +56,9 @@ setInterval(reloadSightings, 30000);
  */
  
 var wn = window.webkitNotifications, notifiers = {
-  alert: function AlertNotificationDriver() {},
   title: function TitleNotificationDriver() {},
   webkit: function WebkitNotificationDriver() {}
 }, notifier = new notifiers.title(), has_focus = true;
-
-notifiers.alert.prototype.notify = function (text) {
-  alert("New Tarla Sighting!\n===================\n\n" + text);
-}
 
 notifiers.title.prototype.notify = function (text) {
   var title = document.title, favicons = [
