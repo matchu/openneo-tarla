@@ -16,4 +16,10 @@ class AllClearTest < ActiveSupport::TestCase
     ac.location = 'http://www.neopets.com/fakeworld/index.phtml'
     assert !ac.valid?, 'after fail'
   end
+  
+  test "only location accessible" do
+    ac = AllClear.new :location => 'foo', :ip => 'bar'
+    assert_equal 'foo', ac.location, 'location'
+    assert ac.ip.nil?, 'ip'
+  end
 end
