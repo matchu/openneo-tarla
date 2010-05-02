@@ -6,7 +6,21 @@
     = world
   %ul.locations
     - locations.each do |name, url|
-      %li= link_to name, url
+      %li
+        = link_to name, url
+        = form_for Sighting.new(:url => url), :html => {:class => 'new-sighting'} do |f|
+          = f.hidden_field :url
+          = f.submit "She's here"
+        = form_for AllClear.new(:url => url), :html => {:class => 'new-all-clear'} do |f|
+          = f.hidden_field :url
+          = f.submit "All clear"
+        .last-cleared
+          - if @all_clears_by_location[url]
+            all clear
+            = time_ago_in_words @all_clears_by_location[url].created_at
+            ago
+          - else
+            never explored
 
 - content_for :controls do
   = link_to 'Back to sightings', sightings_path, :class => 'sightings-list-button'

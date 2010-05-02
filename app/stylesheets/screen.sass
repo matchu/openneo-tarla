@@ -1,7 +1,7 @@
 @import compass/reset
 @import blueprint/colors
 @import blueprint/typography
-@import compass/css3/box-sizing
+@import compass/css3
 @import compass/utilities
 
 $background_color = #c6a6cd
@@ -134,6 +134,21 @@ h1
 
 #no-sightings.hidden
   :display none
+
+ul.locations
+  li > *
+    +inline-block
+  a
+    :font-size 125%
+    :width 10em
+  form
+    :margin-top .5em
+    &.new-sighting input
+      +button(accept)
+    &.new-all-clear input
+      +button(delete)
+  .last-cleared
+    :margin-left 1em
 
 .new-sighting-button
   +button(add)
