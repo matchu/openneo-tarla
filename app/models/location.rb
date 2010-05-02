@@ -5,7 +5,7 @@ class Location
   AllByWorld = ActiveSupport::OrderedHash.new
   locations = YAML::load_file(Rails.root.join('config', 'locations.yml'))
   locations.keys.sort.each { |key| AllByWorld[key] = locations[key] }
-  All = AllByWorld.values.flatten
+  All = AllByWorld.values.map { |hash| hash.values}.flatten
   
   def self.all_by_world
     AllByWorld

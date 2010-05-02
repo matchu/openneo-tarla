@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100430201405) do
+ActiveRecord::Schema.define(:version => 20100502211053) do
+
+  create_table "all_clears", :force => true do |t|
+    t.string   "location"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sightings", :force => true do |t|
     t.string   "url"
