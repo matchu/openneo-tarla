@@ -72,7 +72,7 @@ notifiers.title.prototype.notify = function (text) {
     if(!toggle || (toggle && !has_focus)) {
       $('#favicon').replaceWith(favicons[toggle ? 1 : 0]);
       document.title = toggle ? ('New Tarla Sighting! ' + text) : title;
-      setTimeout(function () { flashTitle(!toggle) }, 500);
+      setTimeout(function () { flashTitle(!toggle) }, 1000);
     }
   }
   flashTitle(true);
