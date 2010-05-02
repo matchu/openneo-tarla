@@ -8,18 +8,18 @@ class AllClearTest < ActiveSupport::TestCase
     assert !ac.valid?, 'after'
   end
   
-  test "location in locations list" do
+  test "url in locations list" do
     ac = Factory.build :all_clear
     assert ac.valid?, 'before'
-    ac.location = 'http://www.neopets.com/faerieland/index.phtml'
+    ac.url = 'http://www.neopets.com/faerieland/index.phtml'
     assert ac.valid?, 'after pass'
-    ac.location = 'http://www.neopets.com/fakeworld/index.phtml'
+    ac.url = 'http://www.neopets.com/fakeworld/index.phtml'
     assert !ac.valid?, 'after fail'
   end
   
-  test "only location accessible" do
-    ac = AllClear.new :location => 'foo', :ip => 'bar'
-    assert_equal 'foo', ac.location, 'location'
+  test "only url accessible" do
+    ac = AllClear.new :url => 'foo', :ip => 'bar'
+    assert_equal 'foo', ac.url, 'url'
     assert ac.ip.nil?, 'ip'
   end
 end
