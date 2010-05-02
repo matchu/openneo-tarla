@@ -1,0 +1,12 @@
+- title 'Locations'
+
+- @locations_by_world.each do |world, locations|
+  %h3
+    = image_tag "http://images.neopets.com/altador/altadorcup/team_logos/#{world}_50.gif"
+    = world
+  %ul.locations
+    - locations.each do |name, url|
+      %li= link_to name, url
+
+- content_for :controls do
+  = link_to 'Back to sightings', sightings_path, :class => 'sightings-list-button'
