@@ -40,7 +40,6 @@ function reloadSightings() {
       sightings = sightings_list.children('li');
     sightings.each(function () {
       var li = $(this);
-      console.log(li);
       if(!document.getElementById(li.attr('id'))) {
         notifier.notify(li.find('a').text());
       }
