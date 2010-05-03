@@ -19,7 +19,11 @@ $('#location-confirmation').mouseleave(function () {
 });
 
 $('#locations form.new-sighting').live('submit', function (e) {
-  if(!confirm('This will create a new sighting at this location. Are you sure you wish to do this?')) {
+  var link = $(this).parent().find('a'),
+    message = "This will create a new sighting at the following location:\n\n" + 
+    link.text() + "\n" + link.attr('href') + "\n\n" +
+    "Are you sure you wish to do this?"
+  if(!confirm(message)) {
     e.preventDefault();
   }
 });
