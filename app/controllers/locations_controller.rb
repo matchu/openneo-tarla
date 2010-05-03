@@ -10,5 +10,6 @@ class LocationsController < ApplicationController
       hash[all_clear.url] = all_clear
       hash
     end
+    render :layout => false if request.xhr?
   end
 end

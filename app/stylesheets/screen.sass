@@ -47,7 +47,6 @@ label, input, button
 #container
   +box-sizing(border-box)
   :padding 1em 1em 1em 300px
-  :position relative
   p
     :width 50%
 
@@ -142,7 +141,7 @@ h3.world img
     :right .5em
   :width 50px
 
-ul.locations
+#locations ul
   li > *
     +inline-block
   a
@@ -157,6 +156,49 @@ ul.locations
   .last-cleared
     :margin-left 1em
 
+$location_height = 256px
+$location_offset = 100px
+
+#location-confirmation
+  :bottom 0
+  :display none
+  :height $location_height
+  :left 0
+  :overflow hidden
+  :position fixed
+  :width 100%
+  :z-index 2
+  &.show-all
+    :overflow visible
+    a
+      :margin-top -$location_offset
+  a
+    :background #333
+    :color #fff
+    :font-size 150%
+    :position absolute
+    :text-align center
+    :text-decoration none
+    :width 50%
+    :z-index 3
+    &:hover
+      :font-weight bold
+  #confirm-sighting
+    :background green
+    :left 0
+  #deny-sighting
+    :background red
+    :right 0
+  iframe
+    :bottom 0
+    :height $location_height + $location_offset
+    :left 0
+    :margin-top -$location_offset
+    :width 100%
+
+body.location-confirmation-showing
+  :padding-bottom $location_height + $location_offset + 10px
+
 .new-sighting-button
   +button(add)
 
@@ -165,9 +207,9 @@ ul.locations
   
 .reload-sightings-button
   +button(arrow_refresh)
-  // only show button if javascript enabled
-  &.loading
-    :background-image url(/images/loading.gif)
+
+.loading
+  :background-image url(/images/loading.gif) !important
 
 .grant-notification-permission-button
   +button(accept)
@@ -180,6 +222,7 @@ footer
   :left 10px
   :top 10px + 346px
   :width 260px
+  :z-index 1
   a
     :font-weight bold
 

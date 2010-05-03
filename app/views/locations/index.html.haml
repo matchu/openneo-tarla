@@ -1,26 +1,32 @@
 - title 'Locations'
 
-- @locations_by_world.each do |world, locations|
-  %h3.world
-    = image_tag world_logo(world)
-    = world
-  %ul.locations
-    - locations.each do |name, url|
-      %li
-        = link_to name, url
-        = form_for Sighting.new(:url => url), :html => {:class => 'new-sighting'} do |f|
-          = f.hidden_field :url
-          = f.submit "She's here"
-        = form_for AllClear.new(:url => url), :html => {:class => 'new-all-clear'} do |f|
-          = f.hidden_field :url
-          = f.submit "All clear"
-        .last-cleared
-          - if @all_clears_by_location[url]
-            all clear
-            = time_ago_in_words @all_clears_by_location[url].created_at
-            ago
-          - else
-            never explored
+#locations
+  - @locations_by_world.each do |world, locations|
+    %h3.world
+      = image_tag world_logo(world)
+      = world
+    %ul
+      - locations.each do |name, url|
+        %li
+          = link_to name, url
+          = form_for Sighting.new(:url => url), :html => {:class => 'new-sighting'} do |f|
+            = f.hidden_field :url
+            = f.submit "She's here"
+          = form_for AllClear.new(:url => url), :html => {:class => 'new-all-clear'} do |f|
+            = f.hidden_field :url
+            = f.submit "All clear"
+          .last-cleared
+            - if @all_clears_by_location[url]
+              all clear
+              = time_ago_in_words @all_clears_by_location[url].created_at
+              ago
+            - else
+              never explored
+#location-confirmation
+  = link_to "She's here", '#', :id => 'confirm-sighting'
+  = link_to "All clear", '#', :id => 'deny-sighting'
+  %iframe{:src => 'about:blank'}
 
+- include_javascript_in_layout :jquery, 'locations/index'
 - content_for :controls do
   = link_to 'Back to sightings', sightings_path, :class => 'sightings-list-button'

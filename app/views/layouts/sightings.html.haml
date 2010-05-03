@@ -18,7 +18,7 @@
       - [:notice, :alert].each do |type|
         - unless send(type).blank?
           %p{:class => type}= send(type)
-      = yield
+      #content= yield
     %footer
       :markdown
         Brought to you by [OpenNeo][1]. We make open-source apps for fun.
