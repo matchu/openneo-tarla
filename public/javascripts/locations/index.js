@@ -49,7 +49,20 @@ $('#confirm-sighting').click(willCompleteConfirmation('new-sighting'));
 
 $('#deny-sighting').click(willCompleteConfirmation('new-all-clear'));
 
+function startReload() {
+  $('a.reload-button').addClass('loading');
+  $.get('/locations', processReload);
+}
+
 function processReload(html) {
   var wrapper = $('<div/>', {html: html});
   $('#locations').html(wrapper.find('#locations').html());
+  $('a.reload-button').removeClass('loading');
 }
+
+$('a.reload-button').click(function (e) {
+  startReload();
+  e.preventDefault();
+});
+
+setInterval(startReload, 30000);
