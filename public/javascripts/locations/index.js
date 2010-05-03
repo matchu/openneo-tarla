@@ -1,11 +1,13 @@
 var confirmingLocation;
 
 $('#locations ul a').live('click', function (e) {
-  e.preventDefault();
-  confirmingLocation = $(this).parent();
-  $('#location-confirmation').find('iframe').
-    attr('src', this.href).end().show();
-  $(document.body).addClass('location-confirmation-showing');
+  if(!e.ctrlKey && !e.metaKey) {
+    e.preventDefault();
+    confirmingLocation = $(this).parent();
+    $('#location-confirmation').find('iframe').
+      attr('src', this.href).end().show();
+    $(document.body).addClass('location-confirmation-showing');
+  }
 });
 
 $('#location-confirmation iframe').mouseenter(function () {
