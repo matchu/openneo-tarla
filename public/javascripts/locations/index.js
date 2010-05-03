@@ -1,9 +1,13 @@
-var confirmingLocation;
+var confirming_location;
+
+/*
+ *   Basic layout hooks
+ */
 
 $('#locations ul a').live('click', function (e) {
   if(!e.ctrlKey && !e.metaKey) {
     e.preventDefault();
-    confirmingLocation = $(this).parent();
+    confirming_location = $(this).parent();
     $('#location-confirmation').find('iframe').
       attr('src', this.href).end().show();
     $(document.body).addClass('location-confirmation-showing');
@@ -43,17 +47,23 @@ function closeLocationConfirmation() {
 function willCompleteConfirmation(form_class) {
   return function (e) {
     var form;
-    form = confirmingLocation.find('form.' + form_class);
-    form.submit();
-    confirmingLocation = null;
-    closeLocationConfirmation();
-    e.preventDefault();
+    if(confirming_location) {
+      form = confirming_location.find('form.' + form_class);
+      form.submit();
+      confirming_location = null;
+      closeLocationConfirmation();
+      e.preventDefault();
+    }
   }
 }
 
 $('#confirm-sighting').click(willCompleteConfirmation('new-sighting'));
 
 $('#deny-sighting').click(willCompleteConfirmation('new-all-clear'));
+
+/*
+ *   AJAX reload locations
+ */
 
 function startReload() {
   $('a.reload-button').addClass('loading');
@@ -72,3 +82,10 @@ $('a.reload-button').click(function (e) {
 });
 
 setInterval(startReload, 30000);
+
+/*
+ *   Hotkeys
+ */
+
+$(document).bind('keydown', 's', willCompleteConfirmation('new-sighting')).
+  bind('keydown', 'a', willCompleteConfirmation('new-all-clear'));

@@ -36,11 +36,11 @@
             - else
               never explored
 #location-confirmation
-  = link_to "She's here", '#', :id => 'confirm-sighting'
-  = link_to "All clear", '#', :id => 'deny-sighting'
+  = link_to "(S)he's here", '#', :id => 'confirm-sighting'
+  = link_to "(A)ll clear", '#', :id => 'deny-sighting'
   %iframe{:src => 'about:blank'}
 
-- include_javascript_in_layout :jquery, 'locations/index'
+- include_javascript_in_layout :jquery, 'jquery/hotkeys', 'locations/index'
 - content_for :controls do
   = link_to 'Back to sightings', sightings_path, :class => 'sightings-list-button'
   = link_to 'Reload', '#', :class => 'reload-button'
