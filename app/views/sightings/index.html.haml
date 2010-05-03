@@ -22,4 +22,5 @@
 
 - include_javascript_in_layout :jquery, 'jquery/placeholder', 'sightings/index'
 - content_for :controls do
+  = link_to 'Join the hunt!', locations_path, :class => 'locations-list-button'
   = link_to 'Reload', '#', :class => 'reload-button hidden-js-control'

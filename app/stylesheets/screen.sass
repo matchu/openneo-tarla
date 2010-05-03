@@ -15,8 +15,11 @@ $loud_color = #fff
 =component
   :background ($background_color - #111)
   :border 1px solid ($background_color + #111)
+  :color #fff
   :margin-bottom 1em
   :padding 1em
+  p:last-child
+    :margin-bottom 0
 
 =button($icon)
   +component
@@ -196,6 +199,12 @@ $location_offset = 100px
     :margin-top -$location_offset
     :width 100%
 
+#location-explanation
+  +component
+  :width 50%
+  p
+    :width 100%
+
 body.location-confirmation-showing
   :padding-bottom $location_height + $location_offset + 10px
 
@@ -207,6 +216,11 @@ body.location-confirmation-showing
   
 .reload-button
   +button(arrow_refresh)
+
+.locations-list-button
+  +button(map)
+  :background-color green
+  :font-weight bold
 
 .loading
   :background-image url(/images/loading.gif) !important
