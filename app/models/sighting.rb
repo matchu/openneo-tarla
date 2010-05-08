@@ -1,6 +1,8 @@
 require 'uri'
 
 class Sighting < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper # for distance_of_time_in_words
+  
   has_many :votes
   
   attr_accessible :url
@@ -14,6 +16,17 @@ class Sighting < ActiveRecord::Base
       uri = URI.parse(url)
       uri.host = "www.#{uri.host}" unless uri.host.starts_with?('www.')
       sighting.url = uri.to_s
+    end
+  end
+
+  validate do |sighting|
+    a = Sighting.config[:allow_creation_by_ip_every]
+    if a
+      c = sighting.created_at || Time.now
+      if Sighting.where('ip = ? AND created_at > ?', sighting.ip, c - a).count > 0
+        time_in_words = distance_of_time_in_words(a)
+        errors[:base] << "You can only submit one sighting every #{time_in_words}"
+      end
     end
   end
 

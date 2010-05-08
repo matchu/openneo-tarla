@@ -30,8 +30,8 @@ class VoteTest < ActiveSupport::TestCase
   end
   
   test "one vote per sighting per ip" do
-    sightings = Array.new(2) { Factory.build :sighting }
-    ips = ['127.0.0.2', '127.0.0.3']
+    sightings = Array.new(2) { |i| Factory.create :sighting, :ip => "127.0.0.#{i+1}" }
+    ips = ['127.0.0.3', '127.0.0.4']
     # each ip should be able to save a first vote for each sighting
     ips.each do |ip|
       sightings.each do |sighting|

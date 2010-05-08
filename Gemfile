@@ -19,3 +19,5 @@ gem "factory_girl", :git => "git://github.com/thoughtbot/factory_girl.git", :bra
 gem 'rdiscount'
 
 gem 'pg' # for heroku deploy
+
+gem 'timecop' # for unit testing security stuff
