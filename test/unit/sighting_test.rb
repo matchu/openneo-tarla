@@ -38,4 +38,26 @@ class SightingTest < ActiveSupport::TestCase
     5.times { sighting.votes << Factory.build(:vote) }
     assert_equal 5, sighting.votes.size
   end
+
+  test "setting config hash" do
+    Sighting.config = {
+      :allow_creation_by_ip_every => 5.minutes,
+      :duds => {
+        :ban => {
+          :duration => 48.hours,
+          :upon_streak => 2
+        },
+        :negative_vote_streak => 5
+      }
+    }
+    assert_equal 5.minutes, Sighting.config[:allow_creation_by_ip_every]
+    assert_equal 48.hours, Sighting.config[:duds][:ban][:duration]
+    assert_equal 2, Sighting.config[:duds][:ban][:upon_streak]
+    assert_equal 5, Sighting.config[:duds][:negative_vote_streak]
+    assert_raise ArgumentError do
+      Sighting.config = {
+        :foo => :bar
+      }
+    end
+  end
 end
