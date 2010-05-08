@@ -31,7 +31,7 @@ class VoteTest < ActiveSupport::TestCase
   
   test "one vote per sighting per ip" do
     sightings = Array.new(2) { Factory.build :sighting }
-    ips = ['127.0.0.1', '127.0.0.2']
+    ips = ['127.0.0.2', '127.0.0.3']
     # each ip should be able to save a first vote for each sighting
     ips.each do |ip|
       sightings.each do |sighting|
@@ -55,13 +55,22 @@ class VoteTest < ActiveSupport::TestCase
         :sighting => sighting
     }
     assert_equal 0, sighting.score
-    vote.call false, '127.0.0.1'
+    vote.call false, '127.0.0.2'
     assert_equal -1, sighting.score
-    vote.call true, '127.0.0.2'
-    assert_equal 0, sighting.score
     vote.call true, '127.0.0.3'
-    assert_equal 1, sighting.score
+    assert_equal 0, sighting.score
     vote.call true, '127.0.0.4'
+    assert_equal 1, sighting.score
+    vote.call true, '127.0.0.5'
     assert_equal 2, sighting.score
+  end
+
+  test "can not vote on own sightings" do
+    sighting = Factory.create :sighting, :ip => '127.0.0.1'
+    votes = Array.new(2) { |i|
+      Factory.build :vote, :ip => "127.0.0.#{i+1}", :sighting => sighting
+    }
+    assert !votes[0].valid?, 'same ip'
+    assert votes[1].valid?, 'different ip'
   end
 end

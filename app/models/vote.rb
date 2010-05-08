@@ -6,9 +6,15 @@ class Vote < ActiveRecord::Base
   validates :sighting, :presence => true
   validates :ip, :presence => true, :uniqueness => {:scope => :sighting_id}
   
-  before_create do
-    sighting.score += value
-    sighting.save
+  before_create do |vote|
+    vote.sighting.score += value
+    vote.sighting.save
+  end
+
+  validate do |vote|
+    if sighting && vote.ip == vote.sighting.ip
+      vote.errors[:base] << 'Users can not vote on their own sightings'
+    end
   end
   
   private
