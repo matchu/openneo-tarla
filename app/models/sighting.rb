@@ -52,3 +52,5 @@ class Sighting < ActiveRecord::Base
     end
   end
 end
+
+require Rails.root.join('config', 'sightings')
