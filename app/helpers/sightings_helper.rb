@@ -1,9 +1,13 @@
 module SightingsHelper
-  def current_user_has_voted_on?(sighting)
-    for vote in sighting.votes
-      return true if vote.ip == request.remote_ip
+  def can_vote_on?(sighting)
+    if sighting.ip == request.remote_ip
+      false
+    else
+      for vote in sighting.votes
+        return false if vote.ip == request.remote_ip
+      end
+      true
     end
-    return false
   end
   
   def fresh_votes_for_sighting(sighting)

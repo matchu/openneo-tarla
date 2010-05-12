@@ -11,7 +11,7 @@
         - else
           = image_tag 'vote_negative.png', :alt => '-',
             :title => "Sighting denied #{time_ago_in_words vote.created_at} ago"
-  - unless current_user_has_voted_on?(sighting)
+  - if can_vote_on?(sighting)
     - fresh_votes_for_sighting(sighting).each do |type, message, vote|
       = form_for vote, :html => {:class => "#{type}-vote"} do |f|
         = f.hidden_field :sighting_id
