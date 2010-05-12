@@ -4,32 +4,40 @@
 @import compass/css3
 @import compass/utilities
 
-$background_color = #c6a6cd
-$font_color = $background_color - #777
-$header_color = $font_color - #111
-$link_color = $background_color - #aaa
-$link_hover_color = $link_color + #222
-$link_visited_color = $link_color + #333
-$loud_color = #fff
+$background_color: #c6a6cd
+$button_color: $background_color - #222
+$font_color: $background_color - #777
+$header_color: $font_color - #111
+$link_color: $background_color - #aaa
+$link_hover_color: $link_color + #222
+$link_visited_color: $link_color + #333
+$loud_color: #fff
 
 =component
-  :background ($background_color - #111)
+  :background $button_color
   :border 1px solid ($background_color + #111)
-  :color #fff
+  :color #fff !important
   :margin-bottom 1em
   :padding 1em
   p:last-child
     :margin-bottom 0
 
-=button($icon)
+=button
   +component
-  $icon_path = "/images/icons/" + $icon + ".png"
-  :background ($background_color - #222) url($icon_path) no-repeat 4px center
-  :color $loud_color !important
+  :background $button_color
   :padding 4px 6px 4px 24px
   :text-decoration none
   &:hover
     :background-color ($background_color - #333)
+
+=icon-button($icon)
+  +button
+  $icon: "/images/icons/#{$icon}.png"
+  +icon($icon)
+
+=icon($icon_path)
+  $icon_path: unquote($icon_path)
+  :background $button_color url($icon_path) no-repeat 4px 50% !important
 
 +blueprint-typography
 
@@ -100,9 +108,9 @@ h1
       :float left
       :margin-right .5em
     form.positive-vote input
-      +button(accept)
+      +icon-button(accept)
     form.negative-vote input
-      +button(delete)
+      +icon-button(delete)
 
 #new-sighting
   +clearfix
@@ -153,14 +161,14 @@ h3.world img
   form
     :margin-top .5em
     &.new-sighting input
-      +button(accept)
+      +icon-button(accept)
     &.new-all-clear input
-      +button(delete)
+      +icon-button(delete)
   .last-cleared
     :margin-left 1em
 
-$location_height = 256px
-$location_offset = 100px
+$location_height: 256px
+$location_offset: 100px
 
 #location-confirmation
   :bottom 0
@@ -209,24 +217,24 @@ body.location-confirmation-showing
   :padding-bottom $location_height + $location_offset + 10px
 
 .new-sighting-button
-  +button(add)
+  +icon-button(add)
 
 .sightings-list-button
-  +button(arrow_left)
+  +icon-button(arrow_left)
   
 .reload-button
-  +button(arrow_refresh)
+  +icon-button(arrow_refresh)
 
 .locations-list-button
-  +button(map)
-  :background-color green
+  +icon-button(map)
+  :background-color green !important
   :font-weight bold
 
 .loading
   :background-image url(/images/loading.gif) !important
 
 .grant-notification-permission-button
-  +button(accept)
+  +icon-button(accept)
 
 .hidden-js-control
   :display none
@@ -245,6 +253,10 @@ footer
   :width 50%
   p
     :font-weight bold
+
+#sharethis_0 a
+  +button
+  +icon("http://w.sharethis.com/images/share-icon-16x16.png")
 
 input.placeholder
   :color #ccc

@@ -12,7 +12,9 @@
     #container
       %header
         %h1 Tarla's Tour Tracker
-        #controls= yield(:controls)
+        #controls
+          = yield(:controls)
+          = javascript_include_tag 'http://w.sharethis.com/button/sharethis.js#publisher=1e03f451-0266-4a5d-b256-43172aadbe0f&amp;type=website&amp;post_services=email%2Cfacebook%2Ctwitter%2Cgbuzz%2Cmyspace%2Cdigg%2Csms%2Cwindows_live%2Cdelicious%2Cstumbleupon%2Creddit%2Cgoogle_bmarks%2Clinkedin%2Cbebo%2Cybuzz%2Cblogger%2Cyahoo_bmarks%2Cmixx%2Ctechnorati%2Cfriendfeed%2Cpropeller%2Cwordpress%2Cnewsvine%2Clivejournal%2Caim'
       - unless yield(:title).blank?
         %h2= yield(:title)
       - [:notice, :alert].each do |type|
