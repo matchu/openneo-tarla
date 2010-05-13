@@ -25,19 +25,22 @@ $loud_color: #fff
 =button
   +component
   :background $button_color
-  :padding 4px 6px 4px 24px
   :text-decoration none
   &:hover
     :background-color ($background_color - #333)
 
 =icon-button($icon)
   +button
+  +standard-icon($icon)
+
+=standard-icon($icon)
   $icon: "/images/icons/#{$icon}.png"
   +icon($icon)
 
 =icon($icon_path)
   $icon_path: unquote($icon_path)
   :background $button_color url($icon_path) no-repeat 4px 50% !important
+  :padding 4px 6px 4px 24px
 
 +blueprint-typography
 
@@ -144,6 +147,10 @@ h1
 
 #no-sightings.hidden
   :display none
+
+#help
+  +component
+  +standard-icon(flag_green)
 
 h3.world img
   :height 50px
