@@ -82,6 +82,29 @@ class SightingTest < ActiveSupport::TestCase
       end
     end
   end
+  
+  test "prevent duplicates" do
+    with_sighting_config :expires_after => 15.minutes do
+      options = [
+        {:url => 'http://www.neopets.com/water/'},
+        {:url => 'http://www.neopets.com/desert/'}
+      ]
+      sighting = Factory.build :sighting, options[0]
+      assert sighting.save, 'first save'
+      sighting = Factory.build :sighting, options[0]
+      assert !sighting.valid?, 'save same too soon'
+      sighting = Factory.build :sighting, options[1]
+      assert sighting.valid?, 'save different'
+      Timecop.freeze(14.minutes.from_now) do
+        sighting = Factory.build :sighting, options[0]
+        assert !sighting.valid?, 'save same barely too soon'
+      end
+      Timecop.freeze(16.minutes.from_now) do
+        sighting = Factory.build :sighting, options[0]
+        assert sighting.valid?, 'save same after expiry'
+      end
+    end
+  end
 
   private
 

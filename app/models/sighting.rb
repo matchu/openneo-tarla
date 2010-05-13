@@ -29,11 +29,16 @@ class Sighting < ActiveRecord::Base
           errors[:base] << "You can only submit one sighting every #{time_in_words}"
         end
       end
+      e = Sighting.config[:expires_after]
+      if e && Sighting.recent.where('url = ?', sighting.url).count > 0
+        errors[:url] << "has been submitted recently - but thanks!"
+      end
     end
   end
 
   @config = {
     :allow_creation_by_ip_every => nil,
+    :expires_after => nil,
     :duds => {
       :ban => {
         :duration => nil,
@@ -51,6 +56,15 @@ class Sighting < ActiveRecord::Base
     replacement.each do |key, value|
       raise ArgumentError, "#{key} not a valid config key" unless self.config.has_key?(key)
       self.config[key] = value
+    end
+  end
+  
+  def self.recent
+    e = @config[:expires_after]
+    if e
+      where('created_at >= ?', e.ago)
+    else
+      raise RuntimeError, "Can not find recent sightings unless config key expires_after exists"
     end
   end
 end
