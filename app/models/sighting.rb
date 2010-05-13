@@ -29,8 +29,7 @@ class Sighting < ActiveRecord::Base
           errors[:base] << "You can only submit one sighting every #{time_in_words}"
         end
       end
-      e = Sighting.config[:expires_after]
-      if e && Sighting.recent.where('url = ?', sighting.url).count > 0
+      if Sighting.config[:expires_after] && Sighting.recent.where('url = ?', sighting.url).count > 0
         errors[:url] << "has been submitted recently - but thanks!"
       end
     end
@@ -60,6 +59,7 @@ class Sighting < ActiveRecord::Base
   end
   
   def self.recent
+    p @config
     e = @config[:expires_after]
     if e
       where('created_at >= ?', e.ago)
@@ -69,4 +69,5 @@ class Sighting < ActiveRecord::Base
   end
 end
 
-require Rails.root.join('config', 'sightings')
+# load and not require in case we're in development mode and reloading
+load Rails.root.join('config', 'sightings.rb')
