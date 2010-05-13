@@ -20,12 +20,14 @@ class Sighting < ActiveRecord::Base
   end
 
   validate do |sighting|
-    a = Sighting.config[:allow_creation_by_ip_every]
-    if a
-      c = sighting.created_at || Time.now
-      if Sighting.where('ip = ? AND created_at > ?', sighting.ip, c - a).count > 0
-        time_in_words = distance_of_time_in_words(a)
-        errors[:base] << "You can only submit one sighting every #{time_in_words}"
+    if sighting.new_record?
+      a = Sighting.config[:allow_creation_by_ip_every]
+      if a
+        c = sighting.created_at || Time.now
+        if Sighting.where('ip = ? AND created_at > ?', sighting.ip, c - a).count > 0
+          time_in_words = distance_of_time_in_words(a)
+          errors[:base] << "You can only submit one sighting every #{time_in_words}"
+        end
       end
     end
   end
