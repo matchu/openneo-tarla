@@ -1,6 +1,4 @@
 class LocationsController < ApplicationController
-  layout 'sightings'
-  
   def index
     @locations_by_world = Location.all_by_world
     all_clears = AllClear.select('all_clears.url, all_clears.created_at').
