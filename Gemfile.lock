@@ -61,7 +61,7 @@ GEM
     gherkin (2.11.1)
       json (>= 1.4.6)
     haml (3.0.0.rc.3)
-    high_voltage (1.1.1)
+    high_voltage (1.2.0)
     i18n (0.3.7)
     json (1.7.4)
     libwebsocket (0.1.5)
