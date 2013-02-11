@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.19'
 
+# https://groups.google.com/d/topic/rubyonrails-security/4_YvCpLzL58/discussion
+gem 'json', '~> 1.7.7'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
