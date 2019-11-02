@@ -10,7 +10,7 @@ gem 'json', '~> 1.7.7'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem 'haml', '3.0.0.rc.3'
+gem 'haml', '5.0.0'
 gem 'compass', '0.10.0.rc4'
 
 gem 'capybara'
